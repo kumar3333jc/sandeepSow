@@ -121,7 +121,7 @@ ipcMain.on('app_version', async(event) => {
 autoUpdater.on('update-available', () => {
     console.log('upd ava')
    // event.returnValue= { update_available: update_available }
-   // autoUpdater.downloadUpdate();
+    autoUpdater.downloadUpdate();
     win.webContents.send('update_available');
 });
 
