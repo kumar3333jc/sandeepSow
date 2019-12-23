@@ -1,0 +1,14 @@
+<h1>current Version:  {{version.version}}
+</h1>
+<div *ngIf="onlineFlag; else elseBlock">
+    connected to internet, Checking for updates 
+</div>
+<ng-template #elseBlock>Please connect to internet to Check latest version</ng-template>
+<button (click)="restart()">
+    restart
+</button>
+
+<button (click)="proceed()">
+    proceed
+</button>
+
