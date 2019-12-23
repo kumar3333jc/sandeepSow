@@ -113,27 +113,27 @@ ipcMain.on('get-items', async (event) => {
         throw err;
     }
 });
-ipcMain.on('app_version', (event) => {
-   // event.returnValue= { version: app.getVersion() }
-   win.webContents.send('app_version', { version: app.getVersion() });
-});
-
-autoUpdater.on('update-available', (event) => {
+ipcMain.on('app_version', async(event) => {
+    event.returnValue= { version: app.getVersion() };
+   //win.webContents.send('app_versionn', { version: app.getVersion() });
+})
+   
+autoUpdater.on('update-available', () => {
     console.log('upd ava')
    // event.returnValue= { update_available: update_available }
-    autoUpdater.downloadUpdate();
-    win.webContents.send('update_available', event);
+   // autoUpdater.downloadUpdate();
+    win.webContents.send('update_available');
 });
 
-autoUpdater.on('update-downloaded', (event) => {
+autoUpdater.on('update-downloaded', () => {
     console.log('upd dwd')
  //   event.returnValue= { update_downloaded: update_downloaded }
-    win.webContents.send('update_downloaded', event);
+    win.webContents.send('update_downloaded');
 });
-autoUpdater.on('download-progress', (event) => {
+autoUpdater.on('download-progress', () => {
     console.log('progress')
  //   event.returnValue= { update_downloaded: update_downloaded }
-    win.webContents.send('update_downloaded', event);
+    win.webContents.send('download-progress');
 });
 ipcMain.on('restart_app', () => {
     autoUpdater.quitAndInstall();

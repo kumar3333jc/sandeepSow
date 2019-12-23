@@ -25,4 +25,10 @@ export class ApplicationService {
      return of(this.electronService.ipcRenderer.sendSync('save-pdf', pdfContent, printFlag)).pipe(
        catchError((error: any) => Observable.throw(error.json)))
   };
+  getVersion(): Observable<any> {
+    return of(
+      this.electronService.ipcRenderer.sendSync('app_version')).pipe(
+      catchError((error: any) => Observable.throw(error.json))
+    );
+  }
   }

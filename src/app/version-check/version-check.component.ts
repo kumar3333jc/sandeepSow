@@ -16,38 +16,32 @@ export class VersionCheckComponent implements OnInit {
   constructor(public router: Router, private as: ApplicationService, private es: ElectronService) {
   }
   ngOnInit() {
-    // this.getVersion();
+    this.checkVersion();
     if (navigator.onLine) {
       this.onlineFlag = true;
     }
     //this.version = environment.version
-    this.es.ipcRenderer.on('app_version', (event) => {
-      console.log('app version');
-      console.log(event);
-
-      // console.log(event.version);
-      // this.version = event.version
-
-    });
-    this.es.ipcRenderer.on('update_available', (event) => {
+    this.es.ipcRenderer.on('update_available', () => {
       console.log('avail-triggered');
-      console.log(event);
-
+      //console.log(event);
     });
-    this.es.ipcRenderer.on('update_downloaded', (event) => {
+    this.es.ipcRenderer.on('update_downloaded', () => {
       console.log('downtriggered')
-      // console.log(event);
     });
-    this.es.ipcRenderer.on('download-progress', (event) => {
+    this.es.ipcRenderer.on('download-progress', () => {
       console.log('downtriggered')
-      console.log(event);
     });
   }
   proceed() {
     this.router.navigate(['/Page1'])
   }
   restart() {
-   this.es.ipcRenderer.send('restart_app');
+    this.es.ipcRenderer.send('restart_app');
   }
-
+  checkVersion() {
+   this.as.getVersion().subscribe((data)=>{
+     this.version= data.version;
+   })
+  }
+ 
 }
