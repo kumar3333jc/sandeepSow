@@ -1,6 +1,6 @@
 {
   "name": "ITD",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "entry.js",
   "build": {
     "appId": "FORM10FA",
