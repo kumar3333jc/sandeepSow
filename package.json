@@ -1,6 +1,6 @@
 {
   "name": "ITD",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "entry.js",
   "build": {
     "appId": "FORM10FA",
@@ -26,8 +26,7 @@
       {
         "provider": "github",
         "owner": "sandeepsow",
-        "repo": "intense",
-        "token": "419f41552fd35234681f79347328a8ceb23c05d8"
+        "repo": "intense"
        
       }
     ],
