@@ -16,7 +16,7 @@ export class VersionCheckComponent implements OnInit {
   constructor(public router: Router, private as: ApplicationService, private es: ElectronService) {
   }
   ngOnInit() {
-    this.checkVersion();
+   // this.checkVersion();
     if (navigator.onLine) {
       this.onlineFlag = true;
     }
