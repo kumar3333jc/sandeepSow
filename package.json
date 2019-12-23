@@ -1,6 +1,6 @@
 {
   "name": "ITD",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "entry.js",
   "build": {
     "appId": "FORM10FA",
@@ -27,18 +27,16 @@
         "provider": "github",
         "owner": "sandeepsow",
         "repo": "intense"
-       
       }
     ],
     "directories": {
       "output": "exefolder"
     },
-    "files": [
-    ]
+    "files": []
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sandeepsow/intense.git"
+    "url": "https://github.com/kumar3333jc/sandeepSow.git"
   },
   "scripts": {
     "ng": "ng",
